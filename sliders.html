@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RGB Color Sliders</title>
+
+        <style>
+            .box {
+                border: 1px solid #000;
+                height: 200px;
+                width: 200px;
+                background-color: #fff;
+                margin: 10px 0;
+            }
+
+            label {
+                display: inline-block;
+                width: 10em;
+            }
+
+            .components {
+                text-align: center;
+                border-collapse: collapse;
+            }
+
+            .components th, .components td {
+                border: 1px solid #888;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+        </style>
+    </head>
+
+    <body onload="update()">
+        <h1>RGB Color Sliders</h1>
+        <table class="components">
+            <tr>
+                <th>Component Color</th>
+                <th>Slider</th>
+                <th>Decimal</th>
+                <th>Hexadecimal</th>
+                <th>Binary</th>
+            </tr>
+            <tr>
+                <td>Red</td>
+                <td><input oninput="update()" type="range" min="0" max="255" value="0" class="slider" id="red"></td>
+                </td>
+                <td><div id="decimal-red"></div></td>
+                <td><div id="hex-red"></div></td>
+                <td><div id="binary-red"></div></td>
+            </tr>
+            <tr>
+                <td>Green</td>
+                <td><input oninput="update()" type="range" min="0" max="255" value="0" class="slider" id="green"></td>        
+                <td><span id="decimal-green"></span></td>
+                <td><span id="hex-green"></span></td>
+                <td><span id="binary-green"></span></td>
+            </tr>
+            <tr>
+                <td>Blue</td>
+                <td><input oninput="update()" type="range" min="0" max="255" value="0" class="slider" id="blue"></td>
+                <td><span id="decimal-blue"></span></td>
+                <td><span id="hex-blue"></span></td>
+                <td><span id="binary-blue"></span></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td>
+                    <div class="box" id="box"></div>
+                </td>
+                <td>
+                    <p>RGB: <span id="rgb"></span></p>
+                    <p>Hexadecimal: <span id="hex"></span></p>
+                    <p>Binary: <span id="bin"></span></p>
+                </td>
+        </tr>
+        </table>
+            
+    </body>
+
+    <script>
+        function update() {
+            
+            r = document.getElementById("red").value;
+            g = document.getElementById("green").value;
+            b = document.getElementById("blue").value;
+            rgb = "rgb(" + r + "," + g + "," + b + ")";
+
+            document.getElementById("decimal-red").innerHTML = r;
+            document.getElementById("decimal-green").innerHTML = g;
+            document.getElementById("decimal-blue").innerHTML = b;
+            document.getElementById("rgb").innerHTML = rgb;
+
+            rHex = Number(r).toString(16).padStart(2, '0');
+            gHex = Number(g).toString(16).padStart(2, '0');
+            bHex = Number(b).toString(16).padStart(2, '0');
+            hex = "#" + rHex + gHex + bHex;
+            document.getElementById("hex-red").innerHTML = rHex;
+            document.getElementById("hex-green").innerHTML = gHex;
+            document.getElementById("hex-blue").innerHTML = bHex;
+            document.getElementById("hex").innerHTML = hex;
+
+            rBin = Number(r).toString(2).padStart(8, '0');
+            gBin = Number(g).toString(2).padStart(8, '0');
+            bBin = Number(b).toString(2).padStart(8, '0');
+            bin = "b" + rBin + gBin + bBin;
+            document.getElementById("binary-red").innerHTML = rBin;
+            document.getElementById("binary-green").innerHTML = gBin;
+            document.getElementById("binary-blue").innerHTML = bBin;
+            document.getElementById("bin").innerHTML = bin;
+
+            box = document.getElementById("box");
+            box.style.backgroundColor = rgb;
+            
+        }
+    </script>
+</html>
