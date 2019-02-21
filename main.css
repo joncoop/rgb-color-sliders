@@ -1,0 +1,33 @@
+body {
+    font-family: sans-serif;
+}
+
+.box {
+    border: 1px solid #000;
+    height: 200px;
+    width: 200px;
+    background-color: #fff;
+    margin: 10px 0;
+}
+
+label {
+    display: inline-block;
+    width: 10em;
+}
+
+.components {
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.components th, .components td {
+    border: 1px solid #888;
+}
+
+th, td {
+    padding: 10px;
+}
+
+span {
+    font-family: 'Courier New', Courier, monospace;
+}
