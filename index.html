@@ -29,6 +29,10 @@
             th, td {
                 padding: 10px;
             }
+
+            span {
+                font-family: 'Courier New', Courier, monospace;
+            }
         </style>
     </head>
 
@@ -46,9 +50,9 @@
                 <td>Red</td>
                 <td><input oninput="update()" type="range" min="0" max="255" value="0" class="slider" id="red"></td>
                 </td>
-                <td><div id="decimal-red"></div></td>
-                <td><div id="hex-red"></div></td>
-                <td><div id="binary-red"></div></td>
+                <td><span id="decimal-red"></span></td>
+                <td><span id="hex-red"></span></td>
+                <td><span id="binary-red"></span></td>
             </tr>
             <tr>
                 <td>Green</td>
